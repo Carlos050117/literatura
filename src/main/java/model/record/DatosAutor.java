@@ -1,4 +1,4 @@
-package model;
+package model.record;
 
 public record DatosAutor() {
 }

@@ -1,15 +1,27 @@
 package principal;
 
+import config.ConsumoApiGutendex;
+import config.ConvertirDatos;
+import repository.AutorRepository;
 import repository.LibroRepository;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Principal {
-    private final LibroRepository repositorio;
-    private Scanner teclado = new Scanner(System.in);
 
-public Principal(LibroRepository repositorio) {
-    this.repositorio = repositorio;
+    private Scanner teclado = new Scanner(System.in);
+    private ConsumoApiGutendex consumoApi = new ConsumoApiGutendex();
+    private ConvertirDatos convertir = new ConvertirDatos();
+    private static String API_BASE = "https://gutendex.com/books/?search=";
+
+    private List<Libro> datosLibro = new ArrayList<>();
+    private LibroRepository libroRepository;
+    private AutorRepository autorRepository;
+    public Principal(LibroRepository libroRepository, AutorRepository autorRepository) {
+    this.libroRepository = libroRepository;
+    this.autorRepository = autorRepository;
 }
 
 public void muestraElMenu() {
